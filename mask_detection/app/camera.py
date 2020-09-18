@@ -3,7 +3,7 @@ import cv2
 face_cascade = cv2.CascadeClassifier("haarcascade_frontalface_alt2.xml")
 nose_cascade = cv2.CascadeClassifier("haarcascade_mcs_nose.xml")
 #for reducing frame size
-ds_factor = 0.5
+ds_factor = 0.9
 
 class VideoCamera(object):
     def __init__(self):
@@ -53,7 +53,7 @@ class VideoCamera(object):
             else:
                 face_label = "Go wear a mask!!"
                 #face_label = "Don't risk your and others life.Go wear a mask!"
-            frame = cv2.putText(frame, face_label, (x - w, y), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1.2, (255, 0, 0) )
+            frame = cv2.putText(frame, face_label, (x - w, y), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1.2, (0, 255, 255) )
             break
         ret, jpeg = cv2.imencode(".jpg", frame)
         return jpeg.tobytes(), wearing_mask
