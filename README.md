@@ -1,7 +1,7 @@
 # MaskifAI
 
-## Objective
-Use OpenCV and Flask to create a mask detection web app. 
+## Overview
+MaskifAI is a mask detection web app which can be used by an organization to ensure that their employees wear a mask while entering the workspace.
 
 ## Description
 1. The web app will be installed in a system at the office entrance.
