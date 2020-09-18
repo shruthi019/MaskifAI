@@ -53,7 +53,7 @@ class VideoCamera(object):
             else:
                 face_label = "Go wear a mask properly!!"
                 #face_label = "Don't risk your and others life.Go wear a mask!"
-            frame = cv2.putText(frame, face_label, (x - w, y), cv2.FONT_HERSHEY_COMPLEX_SMALL, 0.9, (255, 0, 0) )
+            frame = cv2.putText(frame, face_label, (x - w, y), cv2.FONT_HERSHEY_COMPLEX_SMALL, 0.9, (0, 255, 255) )
             break
         ret, jpeg = cv2.imencode(".jpg", frame)
         return jpeg.tobytes(), wearing_mask
