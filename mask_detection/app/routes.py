@@ -93,6 +93,7 @@ def register():
     return render_template('register.html', title='Register', form=form)
 
 @app.route('/sendmail')
+@login_required
 def sendmail():
     if current_user.id == 1:
         conn = sqlite3.connect('app/app.db')
