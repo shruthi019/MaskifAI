@@ -60,4 +60,4 @@ class VideoCamera(object):
             frame = cv2.putText(frame, face_label, (x - w, y), cv2.FONT_HERSHEY_COMPLEX_SMALL, 0.9, (0, 255, 255) )
             break
         ret, jpeg = cv2.imencode(".jpg", frame)
-        return jpeg.tobytes(), wearing_mask, face_label
+        return jpeg.tobytes(), wearing_mask
