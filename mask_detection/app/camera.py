@@ -38,13 +38,8 @@ class VideoCamera(object):
             resized_frame = cv2.resize(face_frame, (256, 256))
             gray_frame = cv2.cvtColor(resized_frame, cv2.COLOR_BGR2GRAY)
             #detect nose position
-<<<<<<< HEAD
-            nose = nose_cascade.detectMultiScale(face_frame, 1.3, 5)
-    
-=======
             nose = self.nose_cascade.detectMultiScale(face_frame, 1.3, 5)
             mouth = self.mouth_cascade.detectMultiScale(face_frame, 1.3, 5)
->>>>>>> d281f11b234f6b8c0efedbf6d01589752dc13f7b
             no_of_noses = len(nose)
             if no_of_noses == 0:
                 wearing_mask = True
@@ -66,11 +61,7 @@ class VideoCamera(object):
             elif len(mouth) > 1:
                 face_label = "Please follow the safety guidelines and wear a mask"
             else:
-<<<<<<< HEAD
-                face_label = "Go wear a mask!!"
-=======
                 face_label = "Please adjust your mask"
->>>>>>> d281f11b234f6b8c0efedbf6d01589752dc13f7b
                 #face_label = "Don't risk your and others life.Go wear a mask!"
             frame = cv2.putText(frame, face_label, (x - w, y), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1.2, (0, 255, 255) )
             break
