@@ -1,9 +1,18 @@
 import cv2
 
+
 face_cascade = cv2.CascadeClassifier("haarcascade_frontalface_alt2.xml")
 nose_cascade = cv2.CascadeClassifier("haarcascade_mcs_nose.xml")
 #for reducing frame size
 ds_factor = 0.9
+
+class VideoCamera(object):
+    face_cascade = cv2.CascadeClassifier("haarcascade_frontalface_alt2.xml")
+    nose_cascade = cv2.CascadeClassifier("haarcascade_mcs_nose.xml")
+    mouth_cascade = cv2.CascadeClassifier("haarcascade_mcs_mouth.xml")
+    #for reducing frame size
+    ds_factor = 0.9
+
 
 class VideoCamera(object):
     def __init__(self):
@@ -29,8 +38,13 @@ class VideoCamera(object):
             resized_frame = cv2.resize(face_frame, (256, 256))
             gray_frame = cv2.cvtColor(resized_frame, cv2.COLOR_BGR2GRAY)
             #detect nose position
+<<<<<<< HEAD
             nose = nose_cascade.detectMultiScale(face_frame, 1.3, 5)
     
+=======
+            nose = self.nose_cascade.detectMultiScale(face_frame, 1.3, 5)
+            mouth = self.mouth_cascade.detectMultiScale(face_frame, 1.3, 5)
+>>>>>>> d281f11b234f6b8c0efedbf6d01589752dc13f7b
             no_of_noses = len(nose)
             if no_of_noses == 0:
                 wearing_mask = True
@@ -48,12 +62,17 @@ class VideoCamera(object):
             frame = cv2.ellipse(frame, center, (w//2, h//2), 0, 0, 360, frame_color, 4)
             #add appropraiate label to frame
             if wearing_mask:
-                face_label = "Great! You are a responsible citizen"
-            
+                face_label = "Thank you, for following the guidelines and wearing the mask properly"
+            elif len(mouth) > 1:
+                face_label = "Please follow the safety guidelines and wear a mask"
             else:
+<<<<<<< HEAD
                 face_label = "Go wear a mask!!"
+=======
+                face_label = "Please adjust your mask"
+>>>>>>> d281f11b234f6b8c0efedbf6d01589752dc13f7b
                 #face_label = "Don't risk your and others life.Go wear a mask!"
             frame = cv2.putText(frame, face_label, (x - w, y), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1.2, (0, 255, 255) )
             break
         ret, jpeg = cv2.imencode(".jpg", frame)
-        return jpeg.tobytes(), wearing_mask
+        return jpeg.tobytes(), wearing_mask, face_label
