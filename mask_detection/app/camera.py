@@ -11,7 +11,7 @@ class VideoCamera(object):
         self.video = cv2.VideoCapture(0)
 
     def __del__(self):
-        self.video.release(0)
+        self.video.release()
     
     def get_frame(self):
         frame_status, frame = self.video.read()
