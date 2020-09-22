@@ -1,11 +1,5 @@
 import cv2
 
-
-face_cascade = cv2.CascadeClassifier("haarcascade_frontalface_alt2.xml")
-nose_cascade = cv2.CascadeClassifier("haarcascade_mcs_nose.xml")
-#for reducing frame size
-ds_factor = 0.9
-
 class VideoCamera(object):
     face_cascade = cv2.CascadeClassifier("haarcascade_frontalface_alt2.xml")
     nose_cascade = cv2.CascadeClassifier("haarcascade_mcs_nose.xml")
@@ -13,8 +7,6 @@ class VideoCamera(object):
     #for reducing frame size
     ds_factor = 0.9
 
-
-class VideoCamera(object):
     def __init__(self):
         self.video = cv2.VideoCapture(0)
 
@@ -24,13 +16,13 @@ class VideoCamera(object):
     def get_frame(self):
         frame_status, frame = self.video.read()
         #resize frame
-        frame = cv2.resize(frame,None, fx = ds_factor, fy = ds_factor, interpolation = cv2.INTER_AREA)
+        frame = cv2.resize(frame,None, fx = self.ds_factor, fy = self.ds_factor, interpolation = cv2.INTER_AREA)
         #convert captured frame into gray-scale
         gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         #equalize image hist to increase contrast and increase feauture detection accuracy
         gray_frame = cv2.equalizeHist(gray_frame)
         #detect the face frame rectangle(top left, bottom down coordinates)
-        faces = face_cascade.detectMultiScale(gray_frame, 1.3, 5)
+        faces = self.face_cascade.detectMultiScale(gray_frame, 1.3, 5)
         wearing_mask = None
         for (x, y, w, h) in faces:
             #increase nose detection accuracy by making the face the region of interest 
@@ -63,7 +55,9 @@ class VideoCamera(object):
             else:
                 face_label = "Please adjust your mask"
                 #face_label = "Don't risk your and others life.Go wear a mask!"
-            frame = cv2.putText(frame, face_label, (x - w, y), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1.2, (0, 255, 255) )
+            # cv2.rectangle(frame, (x - 3*w, y + h +h//3), (x + 5*w, y + 2*h +h//3), (0,0,0), -1)
+            # frame = cv2.putText(frame, face_label, (x - w -w//2, y + h + h//2), cv2.FONT_HERSHEY_COMPLEX_SMALL, 0.9, (0, 255, 255) )
+            frame = cv2.putText(frame, face_label, (x - w, y), cv2.FONT_HERSHEY_COMPLEX_SMALL, 0.9, (0, 255, 255) )
             break
         ret, jpeg = cv2.imencode(".jpg", frame)
         return jpeg.tobytes(), wearing_mask, face_label
