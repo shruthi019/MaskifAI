@@ -49,7 +49,7 @@ class VideoCamera(object):
             else:
                 wearing_mask = False
                 frame_color = (0, 0, 255)
-                face_label = "Please ensure you are wearing a mask properly"
+                face_label = "Please ensure you are wearing the mask properly"
                 X = x -w -w//3
 
             center = (x + w//2, y + h//2)
