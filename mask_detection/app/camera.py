@@ -35,7 +35,8 @@ class VideoCamera(object):
             mouth = self.mouth_cascade.detectMultiScale(half_face, 1.3, 5)
             no_of_noses = len(nose)
             no_of_mouth = len(mouth)
-            if no_of_noses == 0:
+
+            if no_of_noses == 0 and no_of_mouth == 0:
                 wearing_mask = True
                 frame_color = (0, 255, 0)
                 face_label = "Thank you for following the safety guidelines"
@@ -46,6 +47,7 @@ class VideoCamera(object):
                 face_label = "Please follow the safety guidelines and wear a mask"
                 X = x -w -w//11
             else:
+                wearing_mask = False
                 frame_color = (0, 0, 255)
                 face_label = "Please ensure you are wearing a mask properly"
                 X = x -w -w//3
@@ -57,6 +59,10 @@ class VideoCamera(object):
             #frame mouth
             # for (xx,yy,ww,hh) in mouth:
             #     cv2.rectangle(frame, (x +xx,y + yy + h//2 + h//5), (xx + x +ww,y + yy+hh + h//2 + h//5), (255,0,0), 3)
+            #     break
+            #frame mouth
+            # for (xx,yy,ww,hh) in nose:
+            #     cv2.rectangle(frame, (x +xx,y + yy ), (xx + x +ww,y + yy+hh ), (255,0,0), 3)
             #     break
            
             cv2.rectangle(frame, (x - 3*w, y + h +h//3), (x + 5*w, y + 2*h + h//3), (0,0,0), -1)
