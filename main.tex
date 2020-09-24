@@ -2,11 +2,14 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{xcolor}
+\usepackage[font=tiny,labelfont=bf]{caption}
+\usepackage{subcaption}
+
 \graphicspath{ {./images/} }
 
 \title{MaskifAI}
 \subtitle{A mask detection web app}
-\author[TEAM 6]{Sachita Malhotra, Shruthi Rao, Srishti Negi}
+\author[WTEF Project]{}%Sachita Malhotra, Shruthi Rao, Srishti Negi}
 \date{June - August 2020}
 
 
@@ -22,6 +25,35 @@
     \titlepage
 \end{frame}
 
+
+\begin{frame}
+    \frametitle{About Us}
+    % \includegraphics[width=1cm, height=1cm]{SachitaMalhotra}
+    % \hfill
+    % \caption{1}
+    % \includegraphics[width=1cm, height=1cm]{ShruthiRao}
+    % \hfill
+    % \caption{2}
+    % \includegraphics[width=1cm, height=1cm]{SrishtiNegi}
+    % \hfill
+    % \caption{3}
+    \hfil\hfil\includegraphics[width=2.45cm]{SachitaMalhotra}\newline
+    \null\hfil\hfil\makebox[1.45cm]{\small Sachita Malhotra, IGDTUW}\newline
+    \vfil
+    \hfil\hfil\includegraphics[width=2.45cm]{ShruthiRao}\hfil\hfil
+        \includegraphics[width=2.45cm]{SrishtiNegi}\newline
+    \null\hfil\hfil\makebox[1.45cm]{\small Shruthi Rao, IGDTUW}
+    \hfil\hfil\makebox[1.45cm]{\small Srishti Negi, IGDTUW}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Where would you feel safer?}
+    \centering
+    \includegraphics[width=4.5 cm,height=3.5 cm]{office_mask}
+    \includegraphics[width=4.5 cm,height=3.5 cm]{no_office_mask}
+\end{frame}
+
+
 \begin{frame}
     \frametitle{Where would you feel safer?}
     \centering
@@ -34,12 +66,14 @@
     MaskifAI is a mask detection web app which can be used by an organization to ensure that their employees wear a mask while entering the workspace.
 \end{frame}
 
+
+
 \begin{frame}
     \frametitle{Mask Detection}
     \begin{figure}
     \caption{Wearing mask properly}
     \centering
-    \includegraphics[width=0.75\textwidth]{mask_true}
+    \includegraphics[width=0.75\textwidth]{mask}
     \end{figure}
 \end{frame}
 
@@ -48,7 +82,7 @@
     \begin{figure}
     \caption{Wearing mask improperly}
     \centering
-    \includegraphics[width=0.8\textwidth]{improper_mask}
+    \includegraphics[width=0.8\textwidth]{improper_mask__}
     \end{figure}
 \end{frame}
 
@@ -58,7 +92,7 @@
     \begin{figure}
     \caption{Not Wearing mask}
     \centering
-    \includegraphics[width=0.8\textwidth]{no_mask}
+    \includegraphics[width=0.8\textwidth]{no_mask_}
     \end{figure}
 \end{frame}
 
@@ -75,6 +109,11 @@
 \end{frame} 
 
 \begin{frame}
+    \frametitle{Target Audience}
+    The web application is aimed at helping \textcolor{blue}{organizations} take precautions against Covid-19 by ensuring that all the employees who enter the workspace wear masks.
+\end{frame}
+
+\begin{frame}
     \frametitle{Description}
     \begin{enumerate}
         \item App connected to company's authorization system
@@ -84,11 +123,6 @@
     \end{enumerate}
 \end{frame}
 
-
-\begin{frame}
-    \frametitle{Target Audience}
-    The web application is aimed at helping \textcolor{blue}{organizations} take precautions against Covid-19 by ensuring that all the employees who enter the workspace wear masks.
-\end{frame}
 
 % \begin{frame}
 %     \frametitle{Statistics}
@@ -107,6 +141,7 @@
             \item Eyes and mouth Haar Cascades
             \item Nose Haar Cascade
             \end{itemize}
+        \item Distinction between no mask and improper mask
         \item Using the mask data
         \item Email Notification 
     \end{enumerate}
@@ -124,8 +159,6 @@
     \end{enumerate}
 \end{frame}
 
-
-
 \begin{frame}
     \frametitle{Future Scope}
     \begin{enumerate}
@@ -134,6 +167,7 @@
         \item Detect industry-specific protective gear
     \end{enumerate}
 \end{frame}
+
 
 \begin{frame}
     \frametitle{References}
@@ -148,6 +182,7 @@
     \centering
 \huge \textbf{Demo}
 \end{frame}
+
 \begin{frame}[c]{ }
     \centering
 \huge \textbf{Thank You!}
