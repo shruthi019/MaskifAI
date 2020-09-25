@@ -50,12 +50,12 @@ p {
 }
 
 .page-section {
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .section-heading {
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
 
 .section-heading .section-heading-upper {
@@ -66,8 +66,8 @@ p {
 
 .section-heading .section-heading-lower {
   display: block;
-  font-size: 1rem;
-  font-weight: 800;
+  font-size: 3rem;
+  font-weight: 100;
 }
 
 .bg-faded {
