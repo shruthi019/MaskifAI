@@ -17,5 +17,5 @@ The web application is  aimed at helping organizations take precautions against 
 ## References
 1. OpenCV documentation https://opencv.org/
 2. Flask documentation https://flask.palletsprojects.com/en/1.1.x/ 
-3. Face and Facial Feature Detection Evaluation  \newline - M. Castrillon-Santana, O. Deniz-Suarez, L. Anton-Canalıs and J. Lorenzo-Navarro http://alereimondo.no-ip.org/OpenCV/uploads/37/CameraReadyPaper63.pdf
+3. Face and Facial Feature Detection Evaluation - M. Castrillon-Santana, O. Deniz-Suarez, L. Anton-Canalıs and J. Lorenzo-Navarro http://alereimondo.no-ip.org/OpenCV/uploads/37/CameraReadyPaper63.pdf
 
